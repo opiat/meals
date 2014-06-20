@@ -41,6 +41,11 @@ public class Application {
 		Meal meal = new Meal();
 		meal.setName(name);
 		meal.setDate(date);
+		meal.setProteins(10);
+		meal.setCarbohydrates(20);
+		meal.setFats(30);
+		meal.setWeight(150);
+		meal.setKcalPer100g(200);
 		return meal;
 	}
 
