@@ -31,6 +31,9 @@
 			.mealForm{
 				width: 90%;
 			}
+			.mealForm td{
+				text-align:right;
+			}
 		</style>
 </head>
 <body>
@@ -80,33 +83,33 @@
   			<tr ng-repeat="meal in mealsCtrl.meals">
 				<td>{{meal.name}}</td>
 				<td class="number">{{meal.proteins}}</td>
-				<td class="number">{{meal.fats}}</td>
 				<td class="number">{{meal.carbohydrates}}</td>
+				<td class="number">{{meal.fats}}</td>
 				<td class="number">{{meal.weight}}</td>
 				<td class="number">{{meal.kcal}}</td>  			
   			</tr>
   		</table>
   		  		
   		<h2>Nowy posilek</h2>
-		<form method="post" ng-submit="mealsCtrl.addMeal(meal)" class="mealForm">
+		<form method="post" ng-submit="mealsCtrl.addMeal()" class="mealForm">
 			<table >
 				<tr>
 					<td>Nazwa</td>
-					<td><input  id="name" type="text"  ng-model="meal.name" tabindex="1"/></td>
-					<td>B</td>
-					<td><input class="smallNumber" type="text" ng-model="meal.proteins" tabindex="4"/></td>
+					<td><input  id="name" type="text"  ng-model="mealsCtrl.meal.name" tabindex="1"/></td>
+					<td>Bialko/100g</td>
+					<td><input class="smallNumber" type="text" ng-model="mealsCtrl.meal.proteins" tabindex="4"/></td>
 				</tr>					
 				<tr>
 					<td>Waga [g]</td>
-					<td><input id="weight" style="text-align:right;" type="text"  ng-model="meal.weight" tabindex="2"/></td>
-					<td>W</td>
-					<td><input class="smallNumber" type="text" ng-model="meal.carbohydrates" tabindex="5"/></td>
+					<td><input id="weight" style="text-align:right;" type="text"  ng-model="mealsCtrl.meal.weight" tabindex="2"/></td>
+					<td>Weglowodany/100g</td>
+					<td><input class="smallNumber" type="text" ng-model="mealsCtrl.meal.carbohydrates" tabindex="5"/></td>
 				</tr>					
 				<tr>
 					<td>Ilosc kcal/100g</td>
-					<td><input style="text-align:right;" type="text" ng-model="meal.kcalPer100g" tabindex="3" /></td>
-					<td>T</td>
-					<td><input class="smallNumber" type="text" ng-model="meal.fats" tabindex="6"/></td>
+					<td><input style="text-align:right;" type="text" ng-model="mealsCtrl.meal.kcalPer100g" tabindex="3" /></td>
+					<td>Tluszcze/100g</td>
+					<td><input class="smallNumber" type="text" ng-model="mealsCtrl.meal.fats" tabindex="6"/></td>
 				</tr>					
 			</table>
     		<input type="submit" id="submit" value="Dodaj" tabindex="7" />

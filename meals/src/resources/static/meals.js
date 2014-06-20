@@ -16,11 +16,13 @@
 		};
 		this.refreshMeals();
 		
-		this.addMeal = function(meal){	
-			meal.date = this.getDateFormatted();
-			$http.post('/meals/add', meal).success(function(){
+		this.meal = {};
+		this.addMeal = function(){	
+			this.meal.date = this.getDateFormatted();
+			$http.post('/meals/add', this.meal).success(function(){
 				that.refreshMeals();
 			});
+			this.meal = {};
 		};
 		
 		this.showPreviousDay = function(){
