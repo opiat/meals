@@ -6,19 +6,37 @@
 <link href="style.css" rel="stylesheet" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.11/angular.min.js"></script>
 <script src="meals.js"></script>
+
+		<style>
+			.mealsList th{
+				border-top : 1px solid #036; 
+				border-bottom : 1px solid #036;
+				border-left: 0px;
+				border-right: 0px;
+			}
+
+			.mealsList td{
+				border-bottom : 1px solid #8fb8cc;
+			}
+			td.number,th.number{
+				text-align:right;
+			}
+			th.string{
+				text-align:left;
+			}
+			input.smallNumber{
+				width: 30px;
+				style="text-align:right;"
+			}
+			.mealForm{
+				width: 90%;
+			}
+		</style>
 </head>
 <body>
 <div id="container">
   <div id="top">
     <h1>Company Name</h1>
-    <div class="search">
-      <form method="post" action="http://www.free-css.com/">
-        <p>
-          <input type="text" name="search" value="demo only" class="search" />
-          <input type="submit" value="Search" class="searchSubmit" />
-        </p>
-      </form>
-    </div>
   </div>
   <div id="navcontainer">
     <ul id="navlist">
@@ -44,46 +62,54 @@
   <div id="content">
   
   	<div ng-controller="MealsController as mealsCtrl">
-	  <h2>Lista posilkow</h2>
-  		<table>
-  			<tr>
-  				<th>Nazwa</th>
-  				<th>Waga [g]</th>
+	  <h2>
+	  	Lista posilkow z dnia 
+	  	<img style="cursor: pointer;" src="images/left.gif" ng-click="mealsCtrl.showPreviousDay()"/> 
+	  	{{mealsCtrl.date | date: 'dd-MM-yyyy'}} 
+	  	<img style="cursor: pointer;" src="images/right.gif" ng-click="mealsCtrl.showNextDay()"/>
+	  </h2>
+  		<table style="width:100%; " cellspacing="0" class="mealsList">
+  			<tr >
+  				<th class="string">Nazwa</th>
+  				<th class="number" width="5%">B</th>
+  				<th class="number" width="5%">W</th>
+  				<th class="number" width="5%">T</th>
+  				<th class="number" >Waga [g]</th>
+  				<th class="number">kcal</th>
   			</tr>
   			<tr ng-repeat="meal in mealsCtrl.meals">
 				<td>{{meal.name}}</td>
-				<td style="text-align:right;">{{meal.weight}}</td>  			
+				<td class="number">{{meal.proteins}}</td>
+				<td class="number">{{meal.fats}}</td>
+				<td class="number">{{meal.carbohydrates}}</td>
+				<td class="number">{{meal.weight}}</td>
+				<td class="number">{{meal.kcal}}</td>  			
   			</tr>
   		</table>
   		  		
-		<style>
-			.form{
-				float:none;
-			}
-			.formLabel{
-				float: left;
-				width: 80px;
-			}
-			.formInput{
-				float: left;
-				width: 350px;
-			}
-			
-		</style>
-  		<h2>Dodaj posilek</h2>
-		<form method="post" ng-submit="mealsCtrl.addMeal(meal)" novalidate class="form">
-	    	<p>
-	    		<div class="formLabel" >Nazwa</div> 
-	    		<div class="formInput">
-	    			<input type="text" class="search" ng-model="meal.name" />
-	    		</div>
-	    		<div class="formLabel" >Waga</div>
-	    		<div class="formInput">
-	    			<input style="text-align:right;" type="text" class="search" ng-model="meal.weight" />
-	    		</div>
-	    		<div class="formLabel" >&nbsp;</div> 
-	    		<input type="submit" id="submit" value="Dodaj" />
-	  		</p>
+  		<h2>Nowy posilek</h2>
+		<form method="post" ng-submit="mealsCtrl.addMeal(meal)" class="mealForm">
+			<table >
+				<tr>
+					<td>Nazwa</td>
+					<td><input  id="name" type="text"  ng-model="meal.name" tabindex="1"/></td>
+					<td>B</td>
+					<td><input class="smallNumber" type="text" ng-model="meal.proteins" tabindex="4"/></td>
+				</tr>					
+				<tr>
+					<td>Waga [g]</td>
+					<td><input id="weight" style="text-align:right;" type="text"  ng-model="meal.weight" tabindex="2"/></td>
+					<td>W</td>
+					<td><input class="smallNumber" type="text" ng-model="meal.carbohydrates" tabindex="5"/></td>
+				</tr>					
+				<tr>
+					<td>Ilosc kcal/100g</td>
+					<td><input style="text-align:right;" type="text" ng-model="meal.kcalPer100g" tabindex="3" /></td>
+					<td>T</td>
+					<td><input class="smallNumber" type="text" ng-model="meal.fats" tabindex="6"/></td>
+				</tr>					
+			</table>
+    		<input type="submit" id="submit" value="Dodaj" tabindex="7" />
 	  	</form>
   	</div>
   </div>

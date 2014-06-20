@@ -1,0 +1,2 @@
+TODO
+- mozliwosc przegladania listy posilkow na wybrany dzien

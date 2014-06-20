@@ -156,11 +156,6 @@ padding : 10px;
 color : #036;
 } 
 			/*SEARH BAR*/
-form { 
-float : right;
-margin-bottom : 20px;
-margin-right : 15px;
-} 
 input.search { 
 width : 100px;
 border : none;
