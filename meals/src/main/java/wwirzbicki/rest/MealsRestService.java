@@ -42,5 +42,10 @@ public class MealsRestService {
 		}
 		mealRepository.save(meal);
 	}
+	
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.POST)
+	public void deleteMeal(@PathVariable long id){
+		mealRepository.delete(id);
+	}
 
 }

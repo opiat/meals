@@ -34,6 +34,12 @@
 			this.date.setDate(this.date.getDate() + 1);
 			this.refreshMeals();
 		};
+		
+		this.deleteMeal = function(id){
+			$http.post('/meals/delete/' + id).success(function(){
+				that.refreshMeals();
+			});
+		};
 	}]);
 	
 })(); 

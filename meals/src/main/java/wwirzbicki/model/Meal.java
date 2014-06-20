@@ -101,4 +101,9 @@ public class Meal {
 		this.carbohydrates = carbohydrates;
 	}
 
+	public long getId() {
+		return id;
+	}
+
+	
 }

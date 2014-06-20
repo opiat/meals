@@ -1,7 +1,7 @@
 TODO
 - mozliwosc zmiany wagi dodanego posilku bezposrednio na liscie
-- usuwanie posilku z  listy
 
 DONE
+- usuwanie posilku z  listy
 - mozliwosc przegladania listy posilkow na wybrany dzien
 - nawigacja poprzedni/nastepny dzien
