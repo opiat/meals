@@ -1,8 +1,13 @@
 TODO
+MH
 - mozliwosc zmiany wagi dodanego posilku bezposrednio na liscie
 - nie wyswietlac pustej tabeli
-NTH
+- wykres czasowy slupkowy (osobno kalorie, bialko, wegle)
+- ograniczenia do diety np bialko dziennie 180-200mg i kalorie < 2000, alarmy gdy warunek nie jest spelniony
+- oznaczanie bialko zwierzece/roslinne 
+SH
 - placeholdery w inputach
+- zmienic template na 
 
 DONE
 - sumowanie wierszy pod tabela
