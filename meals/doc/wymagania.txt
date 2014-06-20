@@ -1,7 +1,11 @@
 TODO
 - mozliwosc zmiany wagi dodanego posilku bezposrednio na liscie
+- nie wyswietlac pustej tabeli
+NTH
+- placeholdery w inputach
 
 DONE
+- sumowanie wierszy pod tabela
 - usuwanie posilku z  listy
 - mozliwosc przegladania listy posilkow na wybrany dzien
 - nawigacja poprzedni/nastepny dzien

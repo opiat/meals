@@ -7,11 +7,11 @@
 			return  $filter('date')(this.date, 'dd-MM-yyyy');
 		};
 	
-		this.meals = [];
+		this.mealsList = [];
 		var that = this;
 		this.refreshMeals = function(){
 			$http.get('/meals/list/byDate/' + this.getDateFormatted()).success(function(data){
-				that.meals = angular.copy(data);
+				that.mealsList = angular.copy(data);
 			});
 		};
 		this.refreshMeals();

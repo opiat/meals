@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import wwirzbicki.dao.MealRepository;
 import wwirzbicki.model.Meal;
+import wwirzbicki.model.MealsList;
 import wwirzbicki.util.LocalDateTimeJsonSerializer;
 
 @RestController
@@ -29,10 +30,10 @@ public class MealsRestService {
 	}
 
 	@RequestMapping("/list/byDate/{date}")
-	public Iterable<Meal> getMealsByDate(@PathVariable("date") String dateStr) {
+	public MealsList getMealsByDate(@PathVariable("date") String dateStr) {
 		LocalDate date = LocalDateTimeJsonSerializer.FORMATTER
 				.parseLocalDate(dateStr);
-		return mealRepository.findByDate(date);
+		return new MealsList(mealRepository.findByDate(date));
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
