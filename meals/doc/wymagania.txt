@@ -1,2 +1,6 @@
 TODO
+- mozliwosc zmiany wagi dodanego posilku bezposrednio na liscie
+
+DONE
 - mozliwosc przegladania listy posilkow na wybrany dzien
+- nawigacja poprzedni/nastepny dzien
