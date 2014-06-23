@@ -1,6 +1,17 @@
 (function(){
 	var app = angular.module('meals', ['ngRoute']);
 	
+	app.controller('ProductsController', ['$http', function($http){
+		this.products = [];
+		var that = this;
+		this.refreshProducts = function(){
+			$http.get('/product/all').success(function(data){
+				that.products = angular.copy(data);
+			});
+		};
+		this.refreshProducts();
+	}]);
+	
 	app.controller('MealsController', ['$http', '$filter', function($http, $filter){
 		this.date = new Date();
 		this.getDateFormatted = function(){
@@ -49,6 +60,9 @@
 	        templateUrl: 'partials/meal-list.html',
 	        //controller: 'MealsController'
 	      }).
+	      when('/products', {
+	        templateUrl: 'partials/products-list.html',
+	      }).	      
 	      otherwise({
 	        redirectTo: '/meals'
 	      });

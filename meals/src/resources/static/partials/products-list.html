@@ -1,0 +1,23 @@
+<div ng-controller="ProductsController as productsCtrl">
+  <h2>
+  	Lista produktow 
+  </h2>
+	<table style="width:100%; " cellspacing="0" class="mealsList">
+		<tr >
+			<th class="header string">Nazwa</th>
+			<th class="header number" width="5%">B</th>
+			<th class="header number" width="5%">W</th>
+			<th class="header number" width="5%">T</th>
+			<th class="header number">kcal</th>
+			<th class="header number">&nbsp;</th>
+		</tr>
+		<tr ng-repeat="product in productsCtrl.products">
+			<td>{{product.name}}</td>
+			<td class="number">{{product.proteins}}</td>
+			<td class="number">{{product.carbohydrates}}</td>
+			<td class="number">{{product.fats}}</td>
+			<td class="number">{{product.kcal}}</td>
+			<td class="number"><img class="button" src="images/delete.png" ng-click="mealsCtrl.deleteProduct(product.id)" /></td>  	  			
+		</tr>
+	</table>
+</div>
