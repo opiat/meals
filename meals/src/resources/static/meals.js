@@ -1,5 +1,5 @@
 (function(){
-	var app = angular.module('meals', []);
+	var app = angular.module('meals', ['ngRoute']);
 	
 	app.controller('MealsController', ['$http', '$filter', function($http, $filter){
 		this.date = new Date();
@@ -41,5 +41,18 @@
 			});
 		};
 	}]);
+	
+	app.config(['$routeProvider',
+	  function($routeProvider) {
+	    $routeProvider.
+	      when('/meals', {
+	        templateUrl: 'partials/meal-list.html',
+	        //controller: 'MealsController'
+	      }).
+	      otherwise({
+	        redirectTo: '/meals'
+	      });
+	  }
+	]);
 	
 })(); 
