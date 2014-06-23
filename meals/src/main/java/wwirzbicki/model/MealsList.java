@@ -38,7 +38,7 @@ public class MealsList {
 	public int getProteinsTotal(){
 		int sum = 0;
 		for(Meal meal : meals){
-			sum += meal.getProteins();
+			sum += meal.getProduct().getProteins();
 		}
 		return sum;
 	}
@@ -46,7 +46,7 @@ public class MealsList {
 	public int getFatsTotal(){
 		int sum = 0;
 		for(Meal meal : meals){
-			sum += meal.getFats();
+			sum += meal.getProduct().getFats();
 		}
 		return sum;
 	}
@@ -54,7 +54,7 @@ public class MealsList {
 	public int getCarbohydratesTotal(){
 		int sum = 0;
 		for(Meal meal : meals){
-			sum += meal.getCarbohydrates();
+			sum += meal.getProduct().getCarbohydrates();
 		}
 		return sum;
 	}

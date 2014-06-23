@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import wwirzbicki.dao.MealRepository;
+import wwirzbicki.dao.ProductRepository;
 import wwirzbicki.model.Meal;
 import wwirzbicki.model.MealsList;
 import wwirzbicki.util.LocalDateTimeJsonSerializer;
@@ -18,10 +19,12 @@ import wwirzbicki.util.LocalDateTimeJsonSerializer;
 public class MealsRestService {
 
 	private final MealRepository mealRepository;
+	private final ProductRepository productRepository;
 
 	@Autowired
-	public MealsRestService(MealRepository mealRepository) {
+	public MealsRestService(MealRepository mealRepository, ProductRepository productRepository) {
 		this.mealRepository = mealRepository;
+		this.productRepository = productRepository;
 	}
 
 	@RequestMapping("/all")
@@ -41,6 +44,7 @@ public class MealsRestService {
 		if (meal.hasNoDate()) {
 			meal.setDateToNow();
 		}
+		productRepository.save(meal.getProduct());
 		mealRepository.save(meal);
 	}
 	

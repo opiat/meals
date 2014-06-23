@@ -1,9 +1,11 @@
 package wwirzbicki.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.joda.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -21,33 +23,15 @@ public class Meal {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	private String name;
 	private int weight;
-	private int kcalPer100g;
-	private int proteins;
-	private int fats;
-	private int carbohydrates;
 
 	@JsonSerialize(using = LocalDateTimeJsonSerializer.class)
 	@JsonDeserialize(using = LocalDateTimeJsonDeserializer.class)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date;
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getKcalPer100g() {
-		return kcalPer100g;
-	}
-
-	public void setKcalPer100g(int kcalPer100g) {
-		this.kcalPer100g = kcalPer100g;
-	}
+	@ManyToOne(cascade={CascadeType.MERGE})
+	private Product product;
 
 	public int getWeight() {
 		return weight;
@@ -74,36 +58,19 @@ public class Meal {
 	}
 
 	public double getKcal() {
-		return weight / 100.0 * kcalPer100g;
-	}
-
-	public int getProteins() {
-		return proteins;
-	}
-
-	public void setProteins(int proteins) {
-		this.proteins = proteins;
-	}
-
-	public int getFats() {
-		return fats;
-	}
-
-	public void setFats(int fats) {
-		this.fats = fats;
-	}
-
-	public int getCarbohydrates() {
-		return carbohydrates;
-	}
-
-	public void setCarbohydrates(int carbohydrates) {
-		this.carbohydrates = carbohydrates;
+		return weight / 100.0 * product.getKcalPer100g();
 	}
 
 	public long getId() {
 		return id;
 	}
 
-	
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
 }

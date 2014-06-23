@@ -89,10 +89,10 @@
   				<th class="header number">&nbsp;</th>
   			</tr>
   			<tr ng-repeat="meal in mealsCtrl.mealsList.meals">
-				<td>{{meal.name}}</td>
-				<td class="number">{{meal.proteins}}</td>
-				<td class="number">{{meal.carbohydrates}}</td>
-				<td class="number">{{meal.fats}}</td>
+				<td>{{meal.product.name}}</td>
+				<td class="number">{{meal.product.proteins}}</td>
+				<td class="number">{{meal.product.carbohydrates}}</td>
+				<td class="number">{{meal.product.fats}}</td>
 				<td class="number">{{meal.weight}}</td>
 				<td class="number">{{meal.kcal}}</td>
 				<td class="number"><img class="button" src="images/delete.png" ng-click="mealsCtrl.deleteMeal(meal.id)" /></td>  	  			
@@ -116,21 +116,21 @@
 			<table >
 				<tr>
 					<td>Nazwa</td>
-					<td><input  id="name" type="text"  ng-model="mealsCtrl.meal.name" tabindex="1" /></td>
+					<td><input  id="name" type="text"  ng-model="mealsCtrl.meal.product.name" tabindex="1" /></td>
 					<td>Bialko/100g</td>
-					<td><input class="smallNumber" type="text" ng-model="mealsCtrl.meal.proteins" tabindex="4"/></td>
+					<td><input class="smallNumber" type="text" ng-model="mealsCtrl.meal.product.proteins" tabindex="4"/></td>
 				</tr>					
 				<tr>
 					<td>Waga [g]</td>
 					<td><input id="weight" style="text-align:right;" type="text"  ng-model="mealsCtrl.meal.weight" tabindex="2"/></td>
 					<td>Weglowodany/100g</td>
-					<td><input class="smallNumber" type="text" ng-model="mealsCtrl.meal.carbohydrates" tabindex="5"/></td>
+					<td><input class="smallNumber" type="text" ng-model="mealsCtrl.meal.product.carbohydrates" tabindex="5"/></td>
 				</tr>					
 				<tr>
 					<td>Ilosc kcal/100g</td>
-					<td><input style="text-align:right;" type="text" ng-model="mealsCtrl.meal.kcalPer100g" tabindex="3" /></td>
+					<td><input style="text-align:right;" type="text" ng-model="mealsCtrl.meal.product.kcalPer100g" tabindex="3" /></td>
 					<td>Tluszcze/100g</td>
-					<td><input class="smallNumber" type="text" ng-model="mealsCtrl.meal.fats" tabindex="6"/></td>
+					<td><input class="smallNumber" type="text" ng-model="mealsCtrl.meal.product.fats" tabindex="6"/></td>
 				</tr>					
 			</table>
     		<input type="submit" id="submit" value="Dodaj" tabindex="7" />

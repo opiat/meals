@@ -13,7 +13,9 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.FixedLocaleResolver;
 
 import wwirzbicki.dao.MealRepository;
+import wwirzbicki.dao.ProductRepository;
 import wwirzbicki.model.Meal;
+import wwirzbicki.model.Product;
 
 @EnableAutoConfiguration
 @Configuration
@@ -23,29 +25,39 @@ public class Application {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext ctx = SpringApplication.run(Application.class, args);
-		MealRepository repository = ctx.getBean(MealRepository.class);
+		MealRepository mealRepository = ctx.getBean(MealRepository.class);
+		ProductRepository productRepository = ctx.getBean(ProductRepository.class);
 		
 		LocalDate today = LocalDate.now();
 		
-		repository.save(buildMeal("sniadanie", today));
-		repository.save(buildMeal("obiad", today));
-		repository.save(buildMeal("kolacja", today));
+		Product p1 = createProduct("serek wiejski");
+		productRepository.save(p1);
 		
-		repository.save(buildMeal("sniadanie", today.minusDays(1)));
-		repository.save(buildMeal("obiad", today.minusDays(1)));
-		repository.save(buildMeal("kolacja", today.minusDays(1)));
+		mealRepository.save(buildMeal(p1, today));
+		mealRepository.save(buildMeal(p1, today));
+		mealRepository.save(buildMeal(p1, today));
+		
+		mealRepository.save(buildMeal(p1, today.minusDays(1)));
+		mealRepository.save(buildMeal(p1, today.minusDays(1)));
+		mealRepository.save(buildMeal(p1, today.minusDays(1)));
 		
 	}
 	
-	private static Meal buildMeal(String name, LocalDate date) {
+	public static Product createProduct(String name){
+		Product product = new Product();
+		product.setName(name);
+		product.setProteins(10);
+		product.setCarbohydrates(20);
+		product.setFats(30);
+		product.setKcalPer100g(200);
+		return product;
+	}
+	
+	private static Meal buildMeal(Product product, LocalDate date) {
 		Meal meal = new Meal();
-		meal.setName(name);
+		meal.setProduct(product);
 		meal.setDate(date);
-		meal.setProteins(10);
-		meal.setCarbohydrates(20);
-		meal.setFats(30);
 		meal.setWeight(150);
-		meal.setKcalPer100g(200);
 		return meal;
 	}
 
