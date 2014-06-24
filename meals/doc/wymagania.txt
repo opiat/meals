@@ -1,22 +1,23 @@
 TODO
 MH
+- walidacje formularzy
 - wyszukiwarka produktow
-- dodawanie posilku na podstawie gotowego produktu
 - mozliwosc zmiany wagi dodanego posilku bezposrednio na liscie
-- wykres czasowy slupkowy (osobno kalorie, bialko, wegle)
-- ograniczenia do diety np bialko dziennie 180-200mg i kalorie < 2000, alarmy gdy warunek nie jest spelniony
 - oznaczanie bialko zwierzece/roslinne 
 - oznaczanie czy posilek jest planowany czy zjedzony
 - grupowanie posilkow (sniadanie, obiad, kolacja, posilek n)
 - przesuwanie posilkow na liscie
-- dodawanie produktu
 - edycja produktu
-- usuwanie produktu
+- wykres czasowy slupkowy (osobno kalorie, bialko, wegle)
+- ograniczenia do diety np bialko dziennie 180-200mg i kalorie < 2000, alarmy gdy warunek nie jest spelniony
 SH
 - placeholdery w inputach
 - zmienic template na 
 
 DONE
+- dodawanie posilku na podstawie gotowego produktu
+- dodawanie produktu
+- usuwanie produktu
 - lista produktow
 - nie wyswietlac pustej tabeli
 - sumowanie wierszy pod tabela
