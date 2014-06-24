@@ -2,6 +2,7 @@ package wwirzbicki.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,5 +35,14 @@ public class ProductRestService {
 			throw new DeleteException("Nie można usunać produktu ponieważ ma przypisane posiłki.");
 		}
 		productRepository.delete(productId);
+	}
+	
+	@RequestMapping("/add")
+	public void addProduct(@RequestBody Product product){
+		Product existingProduct = productRepository.findByName(product.getName());
+		if(existingProduct != null){
+			throw new CreateException(String.format("Już istnieje produkt o nazwie %s", product.getName()));
+		}
+		productRepository.save(product);
 	}
 }

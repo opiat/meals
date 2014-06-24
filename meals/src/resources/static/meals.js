@@ -1,7 +1,7 @@
 (function(){
 	var app = angular.module('meals', ['ngRoute']);
 	
-	app.controller('ProductsController', ['$http', function($http){
+	app.controller('ProductsController', ['$http', '$location', function($http, $location){
 		this.products = [];
 		var that = this;
 		this.refreshProducts = function(){
@@ -18,6 +18,16 @@
 					alert(data.message);
 				});
 		};
+
+		this.product = {};		
+		this.addProduct = function(){
+			$http.post('/product/add', this.product)
+				.success(function(){
+					$location.path('/products');
+				}).error(function(data){
+					alert(data.message);
+				});
+		}
 		
 		this.refreshProducts();
 	}]);
@@ -71,8 +81,11 @@
 	        //controller: 'MealsController'
 	      }).
 	      when('/products', {
-	        templateUrl: 'partials/products-list.html',
-	      }).	      
+	        templateUrl: 'partials/products-list.html'
+	      }).
+	      when('/product/add', {
+	      	templateUrl: 'partials/product-add.html'
+	      }).   
 	      otherwise({
 	        redirectTo: '/meals'
 	      });

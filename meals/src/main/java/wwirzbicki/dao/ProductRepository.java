@@ -6,4 +6,6 @@ import wwirzbicki.model.Product;
 
 public interface ProductRepository extends CrudRepository<Product, Long> {
 
+	Product findByName(String name);
+
 }
