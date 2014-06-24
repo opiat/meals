@@ -32,7 +32,13 @@ public class Application {
 		
 		Product p1 = createProduct("serek wiejski");
 		productRepository.save(p1);
-		
+
+		Product p2 = createProduct("serek miejski");
+		productRepository.save(p2);
+
+		Product p3 = createProduct("ser przedmiejki");
+		productRepository.save(p3);
+
 		mealRepository.save(buildMeal(p1, today));
 		mealRepository.save(buildMeal(p1, today));
 		mealRepository.save(buildMeal(p1, today));
