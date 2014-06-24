@@ -30,7 +30,7 @@ public class Meal {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date;
 
-	@ManyToOne
+	@ManyToOne(optional=false)
 	private Product product;
 
 	public int getWeight() {
