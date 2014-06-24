@@ -42,7 +42,7 @@
 		<form name="form" method="post" ng-submit="mealsCtrl.addMeal()" class="mealForm" novalidate>
 			Produkt 
 			<select ng-controller="ProductsController as productCtrl" ng-model="mealsCtrl.meal.product.id" required>
-				<option ng-repeat="product in productCtrl.products" value="{{product.id}}">{{product.name}}</option>
+				<option ng-repeat="product in productCtrl.products" value="{{product.id}}" ng-selected="{{$first}}">{{product.name}}</option>
 			</select>
 			Waga [g] <input type="text" class="smallNumber" ng-model="mealsCtrl.meal.weight" required>
     		<input type="submit" id="submit" value="Dodaj posilek " tabindex="7" ng-disabled="form.$invalid" />
