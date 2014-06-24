@@ -9,6 +9,16 @@
 				that.products = angular.copy(data);
 			});
 		};
+	
+		this.deleteProduct = function(productId){
+			$http.post('/product/delete/' + productId)
+				.success(function(){
+					that.refreshProducts();
+				}).error(function(data){
+					alert(data.message);
+				});
+		};
+		
 		this.refreshProducts();
 	}]);
 	

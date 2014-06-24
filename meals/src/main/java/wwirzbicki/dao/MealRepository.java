@@ -9,4 +9,6 @@ public interface MealRepository extends CrudRepository<Meal, Long> {
 
 	Iterable<Meal> findByDate(LocalDate date);
 
+	long countByProductId(Long productId);
+
 }

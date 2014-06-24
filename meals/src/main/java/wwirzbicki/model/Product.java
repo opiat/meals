@@ -57,4 +57,10 @@ public class Product {
 	public void setCarbohydrates(int carbohydrates) {
 		this.carbohydrates = carbohydrates;
 	}
+
+	public long getId() {
+		return id;
+	}
+	
+	
 }
