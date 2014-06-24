@@ -1,6 +1,5 @@
 TODO
 MH
-- baza produktow
 - wyszukiwarka produktow
 - dodawanie posilku na podstawie gotowego produktu
 - mozliwosc zmiany wagi dodanego posilku bezposrednio na liscie
@@ -10,11 +9,15 @@ MH
 - oznaczanie czy posilek jest planowany czy zjedzony
 - grupowanie posilkow (sniadanie, obiad, kolacja, posilek n)
 - przesuwanie posilkow na liscie
+- dodawanie produktu
+- edycja produktu
+- usuwanie produktu
 SH
 - placeholdery w inputach
 - zmienic template na 
 
 DONE
+- lista produktow
 - nie wyswietlac pustej tabeli
 - sumowanie wierszy pod tabela
 - usuwanie posilku z  listy
