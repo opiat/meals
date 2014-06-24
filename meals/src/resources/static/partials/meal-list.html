@@ -40,26 +40,11 @@
   		  		
   		<h2>Nowy posilek</h2>
 		<form method="post" ng-submit="mealsCtrl.addMeal()" class="mealForm">
-			<table >
-				<tr>
-					<td>Nazwa</td>
-					<td><input  id="name" type="text"  ng-model="mealsCtrl.meal.product.name" tabindex="1" /></td>
-					<td>Bialko/100g</td>
-					<td><input class="smallNumber" type="text" ng-model="mealsCtrl.meal.product.proteins" tabindex="4"/></td>
-				</tr>					
-				<tr>
-					<td>Waga [g]</td>
-					<td><input id="weight" style="text-align:right;" type="text"  ng-model="mealsCtrl.meal.weight" tabindex="2"/></td>
-					<td>Weglowodany/100g</td>
-					<td><input class="smallNumber" type="text" ng-model="mealsCtrl.meal.product.carbohydrates" tabindex="5"/></td>
-				</tr>					
-				<tr>
-					<td>Ilosc kcal/100g</td>
-					<td><input style="text-align:right;" type="text" ng-model="mealsCtrl.meal.product.kcalPer100g" tabindex="3" /></td>
-					<td>Tluszcze/100g</td>
-					<td><input class="smallNumber" type="text" ng-model="mealsCtrl.meal.product.fats" tabindex="6"/></td>
-				</tr>					
-			</table>
-    		<input type="submit" id="submit" value="Dodaj" tabindex="7" />
+			Produkt 
+			<select ng-controller="ProductsController as productCtrl" ng-model="mealsCtrl.meal.product.id">
+				<option ng-repeat="product in productCtrl.products" value="{{product.id}}">{{product.name}}</option>
+			</select>
+			Waga [g] <input type="text" class="smallNumber" ng-model="mealsCtrl.meal.weight">
+    		<input type="submit" id="submit" value="Dodaj posilek " tabindex="7" />
 	  	</form>
   	</div>

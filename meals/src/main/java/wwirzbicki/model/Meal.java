@@ -21,7 +21,7 @@ public class Meal {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 
 	private int weight;
 
@@ -30,7 +30,7 @@ public class Meal {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date;
 
-	@ManyToOne(cascade={CascadeType.MERGE})
+	@ManyToOne
 	private Product product;
 
 	public int getWeight() {
@@ -61,7 +61,7 @@ public class Meal {
 		return weight / 100.0 * product.getKcalPer100g();
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

@@ -44,7 +44,6 @@ public class MealsRestService {
 		if (meal.hasNoDate()) {
 			meal.setDateToNow();
 		}
-		productRepository.save(meal.getProduct());
 		mealRepository.save(meal);
 	}
 	
