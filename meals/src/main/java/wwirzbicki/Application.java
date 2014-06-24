@@ -23,39 +23,39 @@ import wwirzbicki.model.Product;
 @PropertySource("classpath:application.properties")
 public class Application {
 
+	private static ProductRepository productRepository;
+
 	public static void main(String[] args) {
 		ConfigurableApplicationContext ctx = SpringApplication.run(Application.class, args);
 		MealRepository mealRepository = ctx.getBean(MealRepository.class);
-		ProductRepository productRepository = ctx.getBean(ProductRepository.class);
+		productRepository = ctx.getBean(ProductRepository.class);
 		
 		LocalDate today = LocalDate.now();
 		
-		Product p1 = createProduct("serek wiejski");
-		productRepository.save(p1);
-
-		Product p2 = createProduct("serek miejski");
-		productRepository.save(p2);
-
-		Product p3 = createProduct("ser przedmiejki");
-		productRepository.save(p3);
+		Product p1 = createProduct("serek wiejski", 11, 5, 3, 100);
+		Product p2 = createProduct("szynka", 15, 0, 15, 150);
+		Product p3 = createProduct("jajca", 30, 0, 20, 200);
 
 		mealRepository.save(buildMeal(p1, today));
-		mealRepository.save(buildMeal(p1, today));
-		mealRepository.save(buildMeal(p1, today));
+		mealRepository.save(buildMeal(p2, today));
+		mealRepository.save(buildMeal(p2, today));
 		
-		mealRepository.save(buildMeal(p1, today.minusDays(1)));
-		mealRepository.save(buildMeal(p1, today.minusDays(1)));
+		mealRepository.save(buildMeal(p3, today.minusDays(1)));
+		mealRepository.save(buildMeal(p2, today.minusDays(1)));
 		mealRepository.save(buildMeal(p1, today.minusDays(1)));
 		
 	}
 	
-	public static Product createProduct(String name){
+	public static Product createProduct(String name, int p, int c, int f, int kcal){
 		Product product = new Product();
 		product.setName(name);
-		product.setProteins(10);
-		product.setCarbohydrates(20);
-		product.setFats(30);
-		product.setKcalPer100g(200);
+		product.setProteins(p);
+		product.setCarbohydrates(c);
+		product.setFats(f);
+		product.setKcalPer100g(kcal);
+		
+		productRepository.save(product);
+		
 		return product;
 	}
 	
