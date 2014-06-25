@@ -1,7 +1,6 @@
 TODO
 MH
 - wyszukiwarka produktow
-- mozliwosc zmiany wagi dodanego posilku bezposrednio na liscie
 - oznaczanie bialko zwierzece/roslinne 
 - oznaczanie czy posilek jest planowany czy zjedzony
 - grupowanie posilkow (sniadanie, obiad, kolacja, posilek n)
@@ -15,6 +14,7 @@ SH
 - ladne walidacje formularzy - zaznaczanie bledow 
 
 DONE
+- mozliwosc zmiany wagi dodanego posilku bezposrednio na liscie
 - auto database-updates
 - walidacje formularzy
 - dodawanie posilku na podstawie gotowego produktu

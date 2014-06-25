@@ -56,6 +56,14 @@
 			this.meal = {};
 		};
 		
+		this.updateMealIfValueWasChanged = function(form, meal){
+			if(form.$dirty){
+				$http.post('/meals/update', meal).success(function(){
+					that.refreshMeals();
+				});
+			}
+		};
+		
 		this.showPreviousDay = function(){
 			this.date.setDate(this.date.getDate() - 1);
 			this.refreshMeals();
