@@ -27,34 +27,34 @@ public class MealsList {
 		return sum;
 	}
 	
-	public int getWeightTotal(){
-		int sum = 0;
+	public double getWeightTotal(){
+		double sum = 0;
 		for(Meal meal : meals){
 			sum += meal.getWeight();
 		}
 		return sum;
 	}
 	
-	public int getProteinsTotal(){
-		int sum = 0;
+	public double getProteinsTotal(){
+		double sum = 0;
 		for(Meal meal : meals){
-			sum += meal.getProduct().getProteins();
+			sum += meal.getProteins();
 		}
 		return sum;
 	}
 	
-	public int getFatsTotal(){
-		int sum = 0;
+	public double getFatsTotal(){
+		double sum = 0;
 		for(Meal meal : meals){
-			sum += meal.getProduct().getFats();
+			sum += meal.getFats();
 		}
 		return sum;
 	}
 	
-	public int getCarbohydratesTotal(){
-		int sum = 0;
+	public double getCarbohydratesTotal(){
+		double sum = 0;
 		for(Meal meal : meals){
-			sum += meal.getProduct().getCarbohydrates();
+			sum += meal.getCarbohydrates();
 		}
 		return sum;
 	}

@@ -14,10 +14,10 @@ public class Product {
 
 	private String name;
 	private String producerName;
-	private int kcalPer100g;
-	private int proteins;
-	private int fats;
-	private int carbohydrates;
+	private double kcalPer100g;
+	private double proteins;
+	private double fats;
+	private double carbohydrates;
 
 	public String getName() {
 		return name;
@@ -27,35 +27,35 @@ public class Product {
 		this.name = name;
 	}
 
-	public int getKcalPer100g() {
+	public double getKcalPer100g() {
 		return kcalPer100g;
 	}
 
-	public void setKcalPer100g(int kcalPer100g) {
+	public void setKcalPer100g(double kcalPer100g) {
 		this.kcalPer100g = kcalPer100g;
 	}
 
-	public int getProteins() {
+	public double getProteins() {
 		return proteins;
 	}
 
-	public void setProteins(int proteins) {
+	public void setProteins(double proteins) {
 		this.proteins = proteins;
 	}
 
-	public int getFats() {
+	public double getFats() {
 		return fats;
 	}
 
-	public void setFats(int fats) {
+	public void setFats(double fats) {
 		this.fats = fats;
 	}
 
-	public int getCarbohydrates() {
+	public double getCarbohydrates() {
 		return carbohydrates;
 	}
 
-	public void setCarbohydrates(int carbohydrates) {
+	public void setCarbohydrates(double carbohydrates) {
 		this.carbohydrates = carbohydrates;
 	}
 

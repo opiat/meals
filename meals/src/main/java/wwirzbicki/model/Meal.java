@@ -23,7 +23,7 @@ public class Meal {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	private int weight;
+	private double weight;
 
 	@JsonSerialize(using = LocalDateTimeJsonSerializer.class)
 	@JsonDeserialize(using = LocalDateTimeJsonDeserializer.class)
@@ -33,11 +33,11 @@ public class Meal {
 	@ManyToOne(optional=false)
 	private Product product;
 
-	public int getWeight() {
+	public double getWeight() {
 		return weight;
 	}
 
-	public void setWeight(int weight) {
+	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 
@@ -56,9 +56,25 @@ public class Meal {
 	public void setDateToNow() {
 		date = LocalDate.now();
 	}
+	
+	public double getProteins(){
+		return weightModifier() * product.getProteins();
+	}
+	
+	public double getCarbohydrates(){
+		return weightModifier() * product.getCarbohydrates();
+	}
+	
+	public double getFats(){
+		return weightModifier() * product.getFats();
+	}
 
 	public double getKcal() {
-		return weight / 100.0 * product.getKcalPer100g();
+		return weightModifier() * product.getKcalPer100g();
+	}
+
+	private double weightModifier() {
+		return weight / 100;
 	}
 
 	public Long getId() {
