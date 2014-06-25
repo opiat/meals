@@ -27,6 +27,10 @@ public class Application {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext ctx = SpringApplication.run(Application.class, args);
+//		createSampleData(ctx);
+	}
+
+	private static void createSampleData(ConfigurableApplicationContext ctx) {
 		MealRepository mealRepository = ctx.getBean(MealRepository.class);
 		productRepository = ctx.getBean(ProductRepository.class);
 		
@@ -43,7 +47,6 @@ public class Application {
 		mealRepository.save(buildMeal(p3, today.minusDays(1)));
 		mealRepository.save(buildMeal(p2, today.minusDays(1)));
 		mealRepository.save(buildMeal(p1, today.minusDays(1)));
-		
 	}
 	
 	public static Product createProduct(String name, int p, int c, int f, int kcal){
