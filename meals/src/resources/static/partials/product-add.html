@@ -1,26 +1,26 @@
 <h2>Nowy produkt</h2>
-<form method="post" ng-submit="productCtrl.addProduct()" class="mealForm" ng-controller="ProductsController as productCtrl">
+<form name="form" method="post" ng-submit="productCtrl.addProduct()" class="mealForm" ng-controller="ProductsController as productCtrl" novalidate>
 	<table >
 		<tr>
 			<td>Nazwa</td>
-			<td><input  id="name" type="text"  ng-model="productCtrl.product.name" tabindex="1" /></td>
+			<td><input  id="name" type="text"  ng-model="productCtrl.product.name" tabindex="1" required/></td>
 		</tr>
 		<tr>
 			<td>Ilosc kcal/100g</td>
-			<td><input style="text-align:right;" type="text" ng-model="productCtrl.product.kcalPer100g" tabindex="3" /></td>
+			<td><input style="text-align:right;" type="text" ng-model="productCtrl.product.kcalPer100g" tabindex="3" required/></td>
 		</tr>
 		<tr>
 			<td>Bialko/100g</td>
-			<td><input class="smallNumber" type="text" ng-model="productCtrl.product.proteins" tabindex="4"/></td>
+			<td><input class="smallNumber" type="text" ng-model="productCtrl.product.proteins" tabindex="4" required/></td>
 		</tr>					
 		<tr>
 			<td>Weglowodany/100g</td>
-			<td><input class="smallNumber" type="text" ng-model="productCtrl.product.carbohydrates" tabindex="5"/></td>
+			<td><input class="smallNumber" type="text" ng-model="productCtrl.product.carbohydrates" tabindex="5" required/></td>
 		</tr>					
 		<tr>
 			<td>Tluszcze/100g</td>
-			<td><input class="smallNumber" type="text" ng-model="productCtrl.product.fats" tabindex="6"/></td>
+			<td><input class="smallNumber" type="text" ng-model="productCtrl.product.fats" tabindex="6" required/></td>
 		</tr>					
 	</table>
-	<input type="submit" id="submit" value="Dodaj" tabindex="7" />
+	<input type="submit" id="submit" value="Dodaj" tabindex="7" ng-disabled="form.$invalid"/>
 </form>
