@@ -7,17 +7,18 @@ import javax.persistence.Id;
 
 @Entity
 public class Product {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
+
 	private String name;
+	private String producerName;
 	private int kcalPer100g;
 	private int proteins;
 	private int fats;
 	private int carbohydrates;
-	
+
 	public String getName() {
 		return name;
 	}
@@ -61,6 +62,13 @@ public class Product {
 	public long getId() {
 		return id;
 	}
-	
-	
+
+	public String getProducerName() {
+		return producerName;
+	}
+
+	public void setProducerName(String producerName) {
+		this.producerName = producerName;
+	}
+
 }

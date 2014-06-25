@@ -2,9 +2,13 @@
 <form name="form" method="post" ng-submit="productCtrl.addProduct()" class="mealForm" ng-controller="ProductsController as productCtrl" novalidate>
 	<table >
 		<tr>
-			<td>Nazwa</td>
+			<td>Nazwa produktu</td>
 			<td><input  id="name" type="text"  ng-model="productCtrl.product.name" tabindex="1" required/></td>
 		</tr>
+		<tr>
+			<td>Nazwa producenta</td>
+			<td><input type="text"  ng-model="productCtrl.product.producerName" tabindex="2" /></td>
+		</tr>		
 		<tr>
 			<td>Ilosc kcal/100g</td>
 			<td><input style="text-align:right;" type="text" ng-model="productCtrl.product.kcalPer100g" tabindex="3" required/></td>
