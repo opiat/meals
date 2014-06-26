@@ -47,8 +47,10 @@ public class MealsRestService {
 		mealRepository.save(meal);
 	}
 	
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public void update(@RequestBody Meal meal) {
+	@RequestMapping(value = "/{mealId}/updateWeight/{weight}", method = RequestMethod.POST)
+	public void update(@PathVariable long mealId, @PathVariable double weight) {
+		Meal meal = mealRepository.findOne(mealId);
+		meal.setWeight(weight);
 		mealRepository.save(meal);
 	}
 	

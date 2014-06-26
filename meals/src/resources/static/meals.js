@@ -56,9 +56,9 @@
 			this.meal = {};
 		};
 		
-		this.updateMealIfValueWasChanged = function(form, meal){
+		this.updateMealWeightIfValueWasChanged = function(form, mealId, weight){
 			if(form.$dirty){
-				$http.post('/meals/update', meal).success(function(){
+				$http.post('/meals/' + mealId + '/updateWeight/' + weight).success(function(){
 					that.refreshMeals();
 				});
 			}

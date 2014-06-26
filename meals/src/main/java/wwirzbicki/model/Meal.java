@@ -1,6 +1,5 @@
 package wwirzbicki.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +12,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import wwirzbicki.util.LocalDateTimeJsonDeserializer;
 import wwirzbicki.util.LocalDateTimeJsonSerializer;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 

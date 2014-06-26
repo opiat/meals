@@ -21,8 +21,8 @@
 				<td class="number">{{meal.carbohydrates | number:1}}</td>
 				<td class="number">{{meal.fats | number:1}}</td>
 				<td class="number">
-					<form name="mealUpdateForm" ng-submit="mealsCtrl.updateMealIfValueWasChanged(mealUpdateForm, meal)">
-						<input type="text" class="smallNumber" ng-model="meal.weight" ng-blur="mealsCtrl.updateMealIfValueWasChanged(mealUpdateForm, meal)"/>
+					<form name="mealUpdateForm" ng-submit="mealsCtrl.updateMealWeightIfValueWasChanged(mealUpdateForm, meal.id, meal.weight)">
+						<input name="weight" type="text" class="smallNumber" ng-model="meal.weight" ng-blur="mealsCtrl.updateMealWeightIfValueWasChanged(mealUpdateForm, meal.id, meal.weight)"/>
 					</form>
 				</td>
 				<td class="number">{{meal.kcal | number:1}}</td>
