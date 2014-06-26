@@ -58,22 +58,18 @@ public class Meal {
 		date = LocalDate.now();
 	}
 	
-	@JsonIgnore
 	public double getProteins(){
 		return weightModifier() * product.getProteins();
 	}
 	
-	@JsonIgnore
 	public double getCarbohydrates(){
 		return weightModifier() * product.getCarbohydrates();
 	}
 	
-	@JsonIgnore
 	public double getFats(){
 		return weightModifier() * product.getFats();
 	}
 
-	@JsonIgnore
 	public double getKcal() {
 		return weightModifier() * product.getKcalPer100g();
 	}
