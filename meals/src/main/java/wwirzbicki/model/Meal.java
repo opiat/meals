@@ -29,8 +29,10 @@ public class Meal {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date;
 
-	@ManyToOne(optional=false)
+	@ManyToOne(optional = false)
 	private Product product;
+
+	private Long sequenceNumber;
 
 	public double getWeight() {
 		return weight;
@@ -55,16 +57,16 @@ public class Meal {
 	public void setDateToNow() {
 		date = LocalDate.now();
 	}
-	
-	public double getProteins(){
+
+	public double getProteins() {
 		return weightModifier() * product.getProteins();
 	}
-	
-	public double getCarbohydrates(){
+
+	public double getCarbohydrates() {
 		return weightModifier() * product.getCarbohydrates();
 	}
-	
-	public double getFats(){
+
+	public double getFats() {
 		return weightModifier() * product.getFats();
 	}
 
@@ -86,6 +88,18 @@ public class Meal {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	public boolean hasNoSequenceNumber() {
+		return sequenceNumber == null;
+	}
+
+	public void setSequenceNumber(Long sn) {
+		this.sequenceNumber = sn;
+	}
+
+	public Long getSequenceNumber() {
+		return sequenceNumber;
 	}
 
 }

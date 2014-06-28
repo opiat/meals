@@ -12,6 +12,7 @@ import wwirzbicki.dao.MealRepository;
 import wwirzbicki.dao.ProductRepository;
 import wwirzbicki.model.Meal;
 import wwirzbicki.model.MealsList;
+import wwirzbicki.service.MealService;
 import wwirzbicki.util.LocalDateTimeJsonSerializer;
 
 @RestController
@@ -19,12 +20,14 @@ import wwirzbicki.util.LocalDateTimeJsonSerializer;
 public class MealsRestService {
 
 	private final MealRepository mealRepository;
+	private final MealService mealService;
 	private final ProductRepository productRepository;
 
 	@Autowired
-	public MealsRestService(MealRepository mealRepository, ProductRepository productRepository) {
+	public MealsRestService(MealRepository mealRepository, ProductRepository productRepository, MealService mealService) {
 		this.mealRepository = mealRepository;
 		this.productRepository = productRepository;
+		this.mealService = mealService;
 	}
 
 	@RequestMapping("/all")
@@ -41,10 +44,7 @@ public class MealsRestService {
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public void add(@RequestBody Meal meal) {
-		if (meal.hasNoDate()) {
-			meal.setDateToNow();
-		}
-		mealRepository.save(meal);
+		mealService.save(meal);
 	}
 	
 	@RequestMapping(value = "/{mealId}/updateWeight/{weight}", method = RequestMethod.POST)
