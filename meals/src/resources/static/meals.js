@@ -75,6 +75,10 @@
 		};
 		
 		this.deleteMeal = function(id){
+			var confirmed = confirm('Czy na pewno chcesz usunac posilek?');
+			if(!confirmed){
+				return;
+			}
 			$http.post('/meals/delete/' + id).success(function(){
 				that.refreshMeals();
 			});
