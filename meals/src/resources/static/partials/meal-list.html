@@ -26,7 +26,11 @@
 					</form>
 				</td>
 				<td class="number">{{meal.kcal | number:1}}</td>
-				<td class="number"><img class="button" src="images/delete.png" ng-click="mealsCtrl.deleteMeal(meal.id)" /></td>  	  			
+				<td class="number">
+					<img class="button" src="images/delete.png" ng-click="mealsCtrl.deleteMeal(meal.id)" />
+					<img class="button" src="images/down.gif" ng-click="mealsCtrl.moveMealUp($index)" />
+					<img class="button" src="images/up.gif" ng-click="mealsCtrl.moveMealDown($index)" />
+				</td>  	  			
   			</tr>
   			<tr >
   				<th class="string">Suma</th>

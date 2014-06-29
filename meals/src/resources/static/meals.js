@@ -79,6 +79,25 @@
 				that.refreshMeals();
 			});
 		};
+		
+		this.moveMealUp = function(index){
+			var meals = this.mealsList.meals;
+			if(index >= meals.length - 1){
+				return;
+			}
+			$http.post('/meals/switch/' + meals[index].id + '/' + meals[index + 1].id).success(function(){
+				that.refreshMeals();
+			});
+		};
+		this.moveMealDown = function(index){
+			var meals = this.mealsList.meals;
+			if(index < 1){
+				return;
+			}
+			$http.post('/meals/switch/' + meals[index - 1].id + '/' + meals[index].id).success(function(){
+				that.refreshMeals();
+			});
+		};
 	}]);
 	
 	app.config(['$routeProvider',

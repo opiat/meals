@@ -24,7 +24,8 @@ public class MealsRestService {
 	private final ProductRepository productRepository;
 
 	@Autowired
-	public MealsRestService(MealRepository mealRepository, ProductRepository productRepository, MealService mealService) {
+	public MealsRestService(MealRepository mealRepository,
+			ProductRepository productRepository, MealService mealService) {
 		this.mealRepository = mealRepository;
 		this.productRepository = productRepository;
 		this.mealService = mealService;
@@ -39,24 +40,28 @@ public class MealsRestService {
 	public MealsList getMealsByDate(@PathVariable("date") String dateStr) {
 		LocalDate date = LocalDateTimeJsonSerializer.FORMATTER
 				.parseLocalDate(dateStr);
-		return new MealsList(mealRepository.findByDate(date));
+		return new MealsList(mealRepository.findByDateOrderBySequenceNumberAsc(date));
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public void add(@RequestBody Meal meal) {
 		mealService.save(meal);
 	}
-	
+
 	@RequestMapping(value = "/{mealId}/updateWeight/{weight}", method = RequestMethod.POST)
 	public void update(@PathVariable long mealId, @PathVariable double weight) {
 		Meal meal = mealRepository.findOne(mealId);
 		meal.setWeight(weight);
 		mealRepository.save(meal);
 	}
-	
-	@RequestMapping(value="/delete/{id}", method=RequestMethod.POST)
-	public void deleteMeal(@PathVariable long id){
+
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+	public void deleteMeal(@PathVariable long id) {
 		mealRepository.delete(id);
 	}
 
+	@RequestMapping(value="/switch/{mealId1}/{mealId2}")
+	public void switchMeals(@PathVariable long mealId1, @PathVariable long mealId2){
+		mealService.switchMeals(mealId1, mealId2);
+	}
 }

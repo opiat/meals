@@ -29,4 +29,14 @@ public class MealService {
 		}
 		mealRepository.save(meal);
 	}
+	
+	public void switchMeals(long mealId1, long mealId2) {
+		Meal firstMeal = mealRepository.findOne(mealId1);
+		Meal secondMeal = mealRepository.findOne(mealId2);
+		long tempSequenceNumber = firstMeal.getSequenceNumber();
+		firstMeal.setSequenceNumber(secondMeal.getSequenceNumber());
+		secondMeal.setSequenceNumber(tempSequenceNumber);
+		mealRepository.save(firstMeal);
+		mealRepository.save(secondMeal);
+	}
 }
