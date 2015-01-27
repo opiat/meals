@@ -9,6 +9,7 @@
 			<th class="header number" width="5%">W</th>
 			<th class="header number" width="5%">T</th>
 			<th class="header number">kcal</th>
+			<th class="header number">waga</th>
 			<th class="header number">&nbsp;</th>
 		</tr>
 		<tr ng-repeat="product in productsCtrl.products">
@@ -17,6 +18,7 @@
 			<td class="number">{{product.carbohydrates}}</td>
 			<td class="number">{{product.fats}}</td>
 			<td class="number">{{product.kcalPer100g}}</td>
+			<td class="number">{{product.defaultWeight}}</td>
 			<td class="number"><img class="button" src="images/delete.png" ng-click="productsCtrl.deleteProduct(product.id)" /></td>  	  			
 		</tr>
 	</table>

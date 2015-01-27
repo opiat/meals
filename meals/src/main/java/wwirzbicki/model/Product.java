@@ -18,6 +18,7 @@ public class Product {
 	private double proteins;
 	private double fats;
 	private double carbohydrates;
+	private double defaultWeight;
 
 	public String getName() {
 		return name;
@@ -69,6 +70,14 @@ public class Product {
 
 	public void setProducerName(String producerName) {
 		this.producerName = producerName;
+	}
+
+	public double getWeight() {
+		return defaultWeight;
+	}
+
+	public void setWeight(double weight) {
+		this.defaultWeight = weight;
 	}
 
 }
